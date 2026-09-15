@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dicionário de Dados — Via Motors</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.5;margin:0;background:#f4f6f8;color:#17202a}
+header{background:#17202a;color:#fff;padding:36px 7%;}
+main{max-width:1200px;margin:30px auto;padding:0 20px}
+section{background:#fff;border-radius:10px;padding:22px;margin:22px 0;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+h1{margin:0 0 8px;font-size:30px} h2{margin-top:0;border-bottom:2px solid #e5e7eb;padding-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid #d9dee3;padding:10px;text-align:left;vertical-align:top}
+th{background:#eef1f4}
+code{font-family:Consolas,monospace}
+.note{background:#fff8e1;border-left:4px solid #d39e00;padding:12px 16px}
+footer{max-width:1200px;margin:30px auto;padding:0 20px 40px;color:#5b6570;font-size:13px}
+@media(max-width:800px){table{display:block;overflow-x:auto;white-space:normal}}
+</style>
+</head>
+<body>
+<header>
+<h1>Dicionário de Dados — Via Motors</h1>
+<div>Entrega 1 — Modelo Conceitual (DER)</div>
+</header>
+<main>
+<div class="note"><strong>Observação:</strong> os exemplos de valores reais não são apresentados neste documento. O dicionário registra a estrutura conceitual, atributos, chaves e regras.</div>
+
+    <section>
+      <h2>Cliente</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_cliente</code></td><td>PK</td><td>Identificador único do cliente.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>nome</code></td><td></td><td>Nome completo do cliente.</td><td>Obrigatório.</td></tr><tr><td><code>cpf</code></td><td></td><td>CPF do cliente.</td><td>Obrigatório; deve ser único no cadastro.</td></tr><tr><td><code>email</code></td><td></td><td>Endereço de e-mail utilizado no contato.</td><td>Obrigatório no cadastro originado por formulário; formato válido.</td></tr><tr><td><code>whatsapp</code></td><td></td><td>Número de WhatsApp utilizado no atendimento.</td><td>Obrigatório para contato; formato válido.</td></tr><tr><td><code>data_cadastro</code></td><td></td><td>Data em que o cliente foi cadastrado.</td><td>Obrigatório.</td></tr><tr><td><code>status</code></td><td></td><td>Situação cadastral do cliente.</td><td>Ex.: ATIVO ou INATIVO.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Funcionario</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_funcionario</code></td><td>PK</td><td>Identificador único do funcionário.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>nome</code></td><td></td><td>Nome do funcionário.</td><td>Obrigatório.</td></tr><tr><td><code>cpf</code></td><td></td><td>CPF do funcionário.</td><td>Obrigatório; deve ser único.</td></tr><tr><td><code>email</code></td><td></td><td>E-mail corporativo ou de contato.</td><td>Opcional.</td></tr><tr><td><code>telefone</code></td><td></td><td>Telefone de contato.</td><td>Obrigatório ou opcional conforme cadastro.</td></tr><tr><td><code>cargo</code></td><td></td><td>Função exercida pelo funcionário.</td><td>Obrigatório.</td></tr><tr><td><code>setor</code></td><td></td><td>Setor em que atua.</td><td>Ex.: Gerência, Vendas, Administração ou Limpeza.</td></tr><tr><td><code>data_admissao</code></td><td></td><td>Data de entrada na organização.</td><td>Obrigatório.</td></tr><tr><td><code>status</code></td><td></td><td>Situação do vínculo do funcionário.</td><td>Ex.: ATIVO ou INATIVO.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Veiculo</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_veiculo</code></td><td>PK</td><td>Identificador único do veículo.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>placa</code></td><td></td><td>Placa de identificação do veículo.</td><td>Deve ser única quando cadastrada.</td></tr><tr><td><code>renavam</code></td><td></td><td>Código RENAVAM do veículo.</td><td>Identificação documental; deve ser único.</td></tr><tr><td><code>marca</code></td><td></td><td>Marca do veículo.</td><td>Obrigatório.</td></tr><tr><td><code>modelo</code></td><td></td><td>Modelo do veículo.</td><td>Obrigatório.</td></tr><tr><td><code>ano_fabricacao</code></td><td></td><td>Ano de fabricação.</td><td>Obrigatório; valor compatível com o veículo.</td></tr><tr><td><code>ano_modelo</code></td><td></td><td>Ano do modelo.</td><td>Obrigatório.</td></tr><tr><td><code>cor</code></td><td></td><td>Cor predominante do veículo.</td><td>Obrigatório.</td></tr><tr><td><code>quilometragem</code></td><td></td><td>Quilometragem registrada.</td><td>Maior ou igual a zero.</td></tr><tr><td><code>valor</code></td><td></td><td>Valor de venda do veículo.</td><td>Maior que zero.</td></tr><tr><td><code>tipo</code></td><td></td><td>Categoria/tipo do veículo.</td><td>Obrigatório.</td></tr><tr><td><code>status</code></td><td></td><td>Situação do veículo no estoque e no processo de venda.</td><td>Ex.: DISPONIVEL, EM_NEGOCIACAO, VENDIDO ou ENTREGUE.</td></tr><tr><td><code>data_cadastro</code></td><td></td><td>Data de cadastro do veículo no sistema.</td><td>Obrigatório.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Negociacao</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_negociacao</code></td><td>PK</td><td>Identificador único da negociação.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_cliente</code></td><td>FK</td><td>Cliente relacionado à negociação.</td><td>FK para Cliente; obrigatório.</td></tr><tr><td><code>id_veiculo</code></td><td>FK</td><td>Veículo que o cliente pretende adquirir.</td><td>FK para Veiculo; obrigatório.</td></tr><tr><td><code>id_funcionario</code></td><td>FK</td><td>Funcionário responsável pelo atendimento/negociação.</td><td>FK para Funcionario; obrigatório.</td></tr><tr><td><code>data_inicio</code></td><td></td><td>Data de início da negociação.</td><td>Obrigatório.</td></tr><tr><td><code>valor_proposto</code></td><td></td><td>Valor inicialmente proposto na negociação.</td><td>Maior que zero.</td></tr><tr><td><code>status</code></td><td></td><td>Situação da negociação.</td><td>Ex.: EM_ANDAMENTO, APROVADA, RECUSADA ou CANCELADA.</td></tr><tr><td><code>observacoes</code></td><td></td><td>Informações adicionais do processo.</td><td>Opcional.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Financiamento</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_financiamento</code></td><td>PK</td><td>Identificador único do financiamento.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_negociacao</code></td><td>FK</td><td>Negociação relacionada ao financiamento.</td><td>FK para Negociacao; deve ser única para evitar mais de um financiamento na mesma negociação.</td></tr><tr><td><code>instituicao_financeira</code></td><td></td><td>Instituição responsável pela análise/crédito.</td><td>Obrigatório.</td></tr><tr><td><code>valor_financiado</code></td><td></td><td>Valor financiado.</td><td>Maior que zero.</td></tr><tr><td><code>quantidade_parcelas</code></td><td></td><td>Quantidade de parcelas.</td><td>Maior que zero.</td></tr><tr><td><code>valor_parcela</code></td><td></td><td>Valor de cada parcela.</td><td>Maior que zero.</td></tr><tr><td><code>status</code></td><td></td><td>Situação da solicitação de financiamento.</td><td>Ex.: EM_ANALISE, APROVADO, RECUSADO ou CANCELADO.</td></tr><tr><td><code>data_solicitacao</code></td><td></td><td>Data da solicitação.</td><td>Obrigatório.</td></tr><tr><td><code>data_aprovacao</code></td><td></td><td>Data de aprovação.</td><td>Preenchida quando houver aprovação.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Venda</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_venda</code></td><td>PK</td><td>Identificador único da venda.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_negociacao</code></td><td>FK</td><td>Negociação que originou a venda.</td><td>FK para Negociacao; uma negociação pode originar no máximo uma venda.</td></tr><tr><td><code>data_venda</code></td><td></td><td>Data de formalização da venda.</td><td>Obrigatório.</td></tr><tr><td><code>valor_venda</code></td><td></td><td>Valor final acordado.</td><td>Maior que zero.</td></tr><tr><td><code>status</code></td><td></td><td>Situação da venda.</td><td>Ex.: REGISTRADA, CONTRATO_ASSINADO, PAGAMENTO_EM_PROCESSAMENTO, AGUARDANDO_ENTREGA ou CONCLUIDA.</td></tr><tr><td><code>observacoes</code></td><td></td><td>Informações adicionais.</td><td>Opcional.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Pagamento</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_pagamento</code></td><td>PK</td><td>Identificador único do pagamento.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_venda</code></td><td>FK</td><td>Venda relacionada ao pagamento.</td><td>FK para Venda; obrigatório.</td></tr><tr><td><code>forma_pagamento</code></td><td></td><td>Forma utilizada para pagamento.</td><td>Obrigatório.</td></tr><tr><td><code>valor</code></td><td></td><td>Valor pago.</td><td>Maior que zero.</td></tr><tr><td><code>data_pagamento</code></td><td></td><td>Data do pagamento.</td><td>Obrigatório.</td></tr><tr><td><code>status</code></td><td></td><td>Situação do pagamento.</td><td>Ex.: PENDENTE, PROCESSANDO, PAGO ou CANCELADO.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Contrato</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_contrato</code></td><td>PK</td><td>Identificador único do contrato.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_venda</code></td><td>FK</td><td>Venda formalizada pelo contrato.</td><td>FK para Venda; obrigatório.</td></tr><tr><td><code>numero_contrato</code></td><td></td><td>Número de identificação do contrato.</td><td>Obrigatório e único.</td></tr><tr><td><code>data_contrato</code></td><td></td><td>Data de formalização do contrato.</td><td>Obrigatório.</td></tr><tr><td><code>tipo_contrato</code></td><td></td><td>Tipo do contrato.</td><td>Obrigatório.</td></tr><tr><td><code>status</code></td><td></td><td>Situação do contrato.</td><td>Ex.: PENDENTE, ASSINADO ou CANCELADO.</td></tr><tr><td><code>observacoes</code></td><td></td><td>Informações adicionais.</td><td>Opcional.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Avaliacao</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_avaliacao</code></td><td>PK</td><td>Identificador único da avaliação.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_veiculo</code></td><td>FK</td><td>Veículo usado oferecido como entrada.</td><td>FK para Veiculo; obrigatório.</td></tr><tr><td><code>id_negociacao</code></td><td>FK</td><td>Negociação em que o veículo usado é oferecido como entrada.</td><td>FK para Negociacao; opcional conforme existência de avaliação.</td></tr><tr><td><code>data_avaliacao</code></td><td></td><td>Data da avaliação.</td><td>Obrigatório.</td></tr><tr><td><code>valor_avaliado</code></td><td></td><td>Valor atribuído ao veículo usado.</td><td>Maior que zero quando houver avaliação.</td></tr><tr><td><code>condicoes_veiculo</code></td><td></td><td>Condições identificadas no veículo.</td><td>Obrigatório.</td></tr><tr><td><code>resultado_laudo</code></td><td></td><td>Resultado do laudo/avaliação.</td><td>Obrigatório.</td></tr><tr><td><code>observacoes</code></td><td></td><td>Informações complementares.</td><td>Opcional.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Revisao</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_revisao</code></td><td>PK</td><td>Identificador único da revisão.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_veiculo</code></td><td>FK</td><td>Veículo submetido à revisão.</td><td>FK para Veiculo; obrigatório.</td></tr><tr><td><code>id_funcionario</code></td><td>FK</td><td>Funcionário responsável pelo acompanhamento/registro.</td><td>FK para Funcionario; obrigatório.</td></tr><tr><td><code>data_revisao</code></td><td></td><td>Data da revisão.</td><td>Obrigatório.</td></tr><tr><td><code>tipo_revisao</code></td><td></td><td>Tipo ou finalidade da revisão.</td><td>Obrigatório.</td></tr><tr><td><code>resultado</code></td><td></td><td>Resultado da revisão.</td><td>Ex.: APROVADO, PENDENTE ou REPROVADO.</td></tr><tr><td><code>observacoes</code></td><td></td><td>Informações adicionais.</td><td>Opcional.</td></tr></tbody>
+      </table>
+    </section>
+    
+    <section>
+      <h2>Anuncio</h2>
+      <table>
+        <thead><tr><th>Atributo</th><th>Chave</th><th>Descrição</th><th>Regra de negócio associada</th></tr></thead>
+        <tbody><tr><td><code>id_anuncio</code></td><td>PK</td><td>Identificador único do anúncio.</td><td>PK; obrigatório e único.</td></tr><tr><td><code>id_veiculo</code></td><td>FK</td><td>Veículo divulgado no anúncio.</td><td>FK para Veiculo; obrigatório.</td></tr><tr><td><code>data_publicacao</code></td><td></td><td>Data de publicação.</td><td>Obrigatório.</td></tr><tr><td><code>titulo</code></td><td></td><td>Título utilizado na divulgação.</td><td>Obrigatório.</td></tr><tr><td><code>descricao</code></td><td></td><td>Descrição do veículo no anúncio.</td><td>Obrigatório.</td></tr><tr><td><code>valor_anunciado</code></td><td></td><td>Valor divulgado.</td><td>Maior que zero.</td></tr><tr><td><code>status</code></td><td></td><td>Situação do anúncio.</td><td>Ex.: ATIVO ou BAIXADO.</td></tr><tr><td><code>data_baixa</code></td><td></td><td>Data em que o anúncio foi retirado.</td><td>Preenchida quando o anúncio for baixado.</td></tr></tbody>
+      </table>
+    </section>
+    
+</main>
+<footer>Documento preparado para a Entrega 1 — Modelo Conceitual (DER).</footer>
+</body>
+</html>
