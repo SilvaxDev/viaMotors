@@ -398,37 +398,7 @@ O anúncio baixado não deve permanecer como uma oferta ativa de um veículo dis
 
 ⸻
 
-Por que essa versão é melhor?
 
-Agora existe uma ligação muito mais clara:
-
-Requisito → Entidade → Atributos → Regra de negócio → DER
-
-Por exemplo:
-
-RF01: cadastrar cliente
-↓
-Cliente
-↓
-id_cliente, nome, cpf, email, whatsapp, data_cadastro, status
-↓
-CPF único
-↓
-aparece no DER como atributo da entidade Cliente.
-
-Isso é exatamente o tipo de consistência que queremos manter entre as partes do trabalho.
-
-E eu faria a mesma melhoria nas outras seções
-
-Principalmente:
-
-* 3.2 Requisitos Não Funcionais
-* 4. Regras de Negócio
-* 5. Dicionário de Dados
-
-Porque agora que detalhamos os requisitos, precisamos conferir se cada atributo que aparece aqui existe no dicionário e no DER.
-
-Não precisamos refazer o projeto. É uma melhoria de documentação e consistência.
 
 ### 3.2 Requisitos Não Funcionais
 
