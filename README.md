@@ -612,19 +612,5 @@ Sugestão de organização:
 ├── Dicionario_de_Dados_Via_Motors.html
 └── evidencias/
     ├── visita_01.jpg
-    ├── visita_02.jpg
-    └── ...
-```
-
----
-
-## Entrega final
-
-De acordo com o roteiro, a entrega final deve conter:
-
-- `README.md` completo;
-- DER em imagem;
-- Dicionário de Dados em HTML;
-- Evidências da organização/pesquisa de campo;
-- Arquivos anexados ao repositório GitHub do grupo.
+    ├── visita_02.## Entrega final
 
