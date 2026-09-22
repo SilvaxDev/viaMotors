@@ -129,37 +129,306 @@ flowchart TD
 
 ### 3.1 Requisitos Funcionais
 
-**RF01.** O sistema deve permitir cadastrar clientes.
+RF01 — Cadastro de clientes
 
-**RF02.** O sistema deve permitir consultar e manter os dados cadastrais dos clientes.
+O sistema deve permitir o cadastro de clientes, armazenando as seguintes informações:
 
-**RF03.** O sistema deve manter o histórico de operações relacionadas ao cliente.
+* ID do cliente;
+* Nome completo;
+* CPF;
+* E-mail;
+* WhatsApp;
+* Data de cadastro;
+* Status do cadastro.
 
-**RF04.** O sistema deve permitir cadastrar funcionários e seus setores.
+O CPF deve identificar exclusivamente cada cliente cadastrado.
 
-**RF05.** O sistema deve permitir cadastrar veículos com suas características e situação.
+⸻
 
-**RF06.** O sistema deve permitir cadastrar e controlar anúncios de veículos.
+RF02 — Consulta e manutenção dos clientes
 
-**RF07.** O sistema deve permitir registrar uma negociação entre cliente, funcionário e veículo.
+O sistema deve permitir:
 
-**RF08.** O sistema deve permitir acompanhar o status de uma negociação.
+* consultar clientes cadastrados;
+* localizar um cliente pelo nome, CPF, e-mail ou WhatsApp;
+* visualizar seus dados cadastrais;
+* atualizar informações cadastrais;
+* alterar o status do cadastro.
 
-**RF09.** O sistema deve permitir registrar uma solicitação de financiamento vinculada à negociação.
+O sistema deve preservar o histórico de negociações e vendas relacionadas ao cliente mesmo quando seus dados cadastrais forem atualizados.
 
-**RF10.** O sistema deve permitir registrar a avaliação de um veículo usado oferecido como entrada.
+⸻
 
-**RF11.** O sistema deve permitir registrar a venda originada de uma negociação aprovada.
+RF03 — Histórico do cliente
 
-**RF12.** O sistema deve permitir registrar pagamentos vinculados à venda.
+O sistema deve permitir consultar o histórico de operações de um cliente, incluindo:
 
-**RF13.** O sistema deve permitir registrar contratos vinculados à venda.
+* negociações realizadas;
+* veículos relacionados às negociações;
+* financiamentos solicitados;
+* vendas realizadas;
+* informações relacionadas aos pagamentos e contratos.
 
-**RF14.** O sistema deve permitir registrar revisões realizadas nos veículos.
+O histórico deve ser mantido para consulta e segurança da loja e do cliente.
 
-**RF15.** O sistema deve permitir registrar a entrega/conclusão do processo por meio do status da venda e do veículo.
+⸻
 
-**RF16.** O sistema deve permitir baixar o anúncio quando o veículo for vendido e entregue.
+RF04 — Cadastro de funcionários
+
+O sistema deve permitir cadastrar os funcionários da Via Motors, armazenando:
+
+* ID do funcionário;
+* Nome;
+* CPF;
+* E-mail;
+* Telefone;
+* Cargo;
+* Setor;
+* Data de admissão;
+* Status.
+
+O setor deve permitir identificar áreas como Gerência, Vendas, Administração e Limpeza.
+
+⸻
+
+RF05 — Cadastro de veículos
+
+O sistema deve permitir cadastrar os veículos disponíveis ou pertencentes ao histórico da loja, armazenando:
+
+* ID do veículo;
+* Placa;
+* RENAVAM;
+* Marca;
+* Modelo;
+* Ano de fabricação;
+* Ano do modelo;
+* Cor;
+* Quilometragem;
+* Valor;
+* Tipo do veículo;
+* Status;
+* Data de cadastro.
+
+O status deve permitir identificar a situação atual do veículo, como disponível, em negociação, vendido ou entregue.
+
+⸻
+
+RF06 — Cadastro e controle de anúncios
+
+O sistema deve permitir cadastrar e controlar anúncios vinculados aos veículos.
+
+Cada anúncio deve armazenar:
+
+* ID do anúncio;
+* Veículo anunciado;
+* Data de publicação;
+* Título;
+* Descrição;
+* Valor anunciado;
+* Status do anúncio;
+* Data de baixa.
+
+O sistema deve permitir identificar quais anúncios estão ativos e quais já foram retirados.
+
+⸻
+
+RF07 — Registro de negociação
+
+O sistema deve permitir registrar uma negociação entre um cliente e um veículo, identificando também o funcionário responsável.
+
+A negociação deve armazenar:
+
+* ID da negociação;
+* Cliente;
+* Veículo de interesse;
+* Funcionário responsável;
+* Data de início;
+* Valor proposto;
+* Status da negociação;
+* Observações.
+
+⸻
+
+RF08 — Acompanhamento da negociação
+
+O sistema deve permitir acompanhar a situação de cada negociação por meio de seu status.
+
+A negociação poderá representar etapas como:
+
+* em andamento;
+* aprovada;
+* recusada;
+* cancelada.
+
+O sistema deve permitir identificar quais negociações ainda estão em processo e quais foram encerradas.
+
+Regra importante: um cliente não pode possuir mais de uma negociação simultânea envolvendo financiamento.
+
+⸻
+
+RF09 — Registro de financiamento
+
+O sistema deve permitir registrar uma solicitação de financiamento vinculada a uma negociação.
+
+Devem ser armazenadas informações como:
+
+* ID do financiamento;
+* Negociação relacionada;
+* Instituição financeira;
+* Valor financiado;
+* Quantidade de parcelas;
+* Valor da parcela;
+* Status do financiamento;
+* Data da solicitação;
+* Data da aprovação.
+
+Uma negociação poderá possuir zero ou um financiamento.
+
+⸻
+
+RF10 — Avaliação de veículo usado como entrada
+
+O sistema deve permitir registrar a avaliação de um veículo usado oferecido pelo cliente como parte da entrada de outro veículo.
+
+A avaliação deve armazenar:
+
+* ID da avaliação;
+* Veículo usado avaliado;
+* Negociação relacionada;
+* Data da avaliação;
+* Valor avaliado;
+* Condições do veículo;
+* Resultado do laudo;
+* Observações.
+
+O veículo usado oferecido como entrada deve ser identificado separadamente do veículo que o cliente pretende comprar.
+
+⸻
+
+RF11 — Registro da venda
+
+O sistema deve permitir registrar a venda quando uma negociação for aprovada.
+
+A venda deve armazenar:
+
+* ID da venda;
+* Negociação relacionada;
+* Data da venda;
+* Valor final da venda;
+* Status da venda;
+* Observações.
+
+Uma negociação poderá resultar em zero ou uma venda.
+
+⸻
+
+RF12 — Registro de pagamentos
+
+O sistema deve permitir registrar os pagamentos relacionados a uma venda.
+
+Cada pagamento deve armazenar:
+
+* ID do pagamento;
+* Venda relacionada;
+* Forma de pagamento;
+* Valor pago;
+* Data do pagamento;
+* Status do pagamento.
+
+Uma venda poderá possuir um ou vários pagamentos.
+
+⸻
+
+RF13 — Registro de contratos
+
+O sistema deve permitir registrar os contratos relacionados à venda.
+
+Cada contrato deve armazenar:
+
+* ID do contrato;
+* Venda relacionada;
+* Número do contrato;
+* Data do contrato;
+* Tipo de contrato;
+* Status do contrato;
+* Observações.
+
+Uma venda poderá possuir um ou vários contratos.
+
+⸻
+
+RF14 — Registro de revisões
+
+O sistema deve permitir registrar as revisões realizadas nos veículos.
+
+Cada revisão deve armazenar:
+
+* ID da revisão;
+* Veículo revisado;
+* Funcionário responsável;
+* Data da revisão;
+* Tipo da revisão;
+* Resultado;
+* Observações.
+
+O registro deve permitir manter o histórico das revisões realizadas em cada veículo.
+
+⸻
+
+RF15 — Controle da entrega do veículo
+
+O sistema deve permitir controlar a conclusão do processo de venda e entrega do veículo por meio dos status da venda e do veículo.
+
+Antes da entrega, o veículo deve passar pela revisão correspondente.
+
+Após a conclusão do processo, o sistema deve permitir identificar que o veículo foi vendido e entregue.
+
+⸻
+
+RF16 — Baixa do anúncio após a venda
+
+O sistema deve permitir realizar a baixa do anúncio quando o veículo for vendido e entregue.
+
+Ao realizar a baixa, devem ser registrados:
+
+* Status do anúncio;
+* Data de baixa.
+
+O anúncio baixado não deve permanecer como uma oferta ativa de um veículo disponível para venda.
+
+⸻
+
+Por que essa versão é melhor?
+
+Agora existe uma ligação muito mais clara:
+
+Requisito → Entidade → Atributos → Regra de negócio → DER
+
+Por exemplo:
+
+RF01: cadastrar cliente
+↓
+Cliente
+↓
+id_cliente, nome, cpf, email, whatsapp, data_cadastro, status
+↓
+CPF único
+↓
+aparece no DER como atributo da entidade Cliente.
+
+Isso é exatamente o tipo de consistência que queremos manter entre as partes do trabalho.
+
+E eu faria a mesma melhoria nas outras seções
+
+Principalmente:
+
+* 3.2 Requisitos Não Funcionais
+* 4. Regras de Negócio
+* 5. Dicionário de Dados
+
+Porque agora que detalhamos os requisitos, precisamos conferir se cada atributo que aparece aqui existe no dicionário e no DER.
+
+Não precisamos refazer o projeto. É uma melhoria de documentação e consistência.
 
 ### 3.2 Requisitos Não Funcionais
 
